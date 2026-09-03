@@ -29,8 +29,13 @@ export default function Home() {
           </div>
 
           <div className="home-portrait-stage" aria-label="Retrato de Elysana Kesler">
+            <div className="portrait-collage" aria-hidden="true">
+              <span className="collage-paper collage-paper-one" />
+              <span className="collage-paper collage-paper-two" />
+              <span className="collage-paper collage-paper-three" />
+            </div>
             <div className="portrait-arch" />
-            <img src="/assets/skins/padrao.jpg" alt="Elysana Kesler em um campo ao entardecer" />
+            <img className="elysana-continuity-portrait" src="/assets/skins/elysana-busto-v2.png" alt="Elysana Kesler" />
             <div className="portrait-caption"><span>Forma selecionada</span><strong>A Bela Dama</strong></div>
           </div>
 

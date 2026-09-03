@@ -3,6 +3,8 @@
 import { ArrowDownRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
+const INTRO_EXIT_MS = 2380;
+
 export function IntroGate() {
   const [leaving, setLeaving] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -13,9 +15,13 @@ export function IntroGate() {
   }, []);
 
   function enter() {
+    if (leaving) return;
+
     setLeaving(true);
-    document.documentElement.classList.remove("intro-locked");
-    window.setTimeout(() => setVisible(false), 2100);
+    window.setTimeout(() => {
+      document.documentElement.classList.remove("intro-locked");
+      setVisible(false);
+    }, INTRO_EXIT_MS);
   }
 
   if (!visible) return null;
@@ -27,33 +33,14 @@ export function IntroGate() {
       <div className="fabric fabric-two" />
       <div className="fabric fabric-three" />
 
-      <div className="intro-liquid-edge" aria-hidden="true">
-        <svg viewBox="0 0 1600 230" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="liquid-wine" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor="#19050b" />
-              <stop offset="0.52" stopColor="#3f0d1b" />
-              <stop offset="1" stopColor="#64182d" />
-            </linearGradient>
-          </defs>
-          <path
-            className="liquid-shadow"
-            d="M0 0H1600V66C1455 104 1376 27 1240 70C1107 112 1030 189 872 128C717 69 654 37 515 88C366 143 248 179 0 104Z"
-          />
-          <path
-            className="liquid-body"
-            d="M0 0H1600V49C1464 82 1372 18 1237 58C1089 102 1028 164 866 111C703 57 640 26 496 75C342 127 211 153 0 87Z"
-          />
-          <path
-            className="liquid-glint"
-            d="M1600 49C1464 82 1372 18 1237 58C1089 102 1028 164 866 111C703 57 640 26 496 75C342 127 211 153 0 87"
-          />
-        </svg>
-      </div>
-
       <div className="intro-portrait-wrap" aria-hidden="true">
+        <div className="portrait-collage">
+          <span className="collage-paper collage-paper-one" />
+          <span className="collage-paper collage-paper-two" />
+          <span className="collage-paper collage-paper-three" />
+        </div>
         <div className="portrait-halo" />
-        <img className="intro-portrait" src="/assets/skins/elysana-busto-v2.png" alt="" />
+        <img className="elysana-continuity-portrait" src="/assets/skins/elysana-busto-v2.png" alt="" />
       </div>
 
       <div className="intro-copy">
@@ -67,9 +54,41 @@ export function IntroGate() {
         </button>
       </div>
 
-      <div className="intro-index" aria-hidden="true">
-        <span>Arquivo</span>
-        <strong>06</strong>
+      <div className="kesler-stamp" aria-hidden="true">
+        <svg viewBox="0 0 240 240" role="presentation">
+          <path className="stamp-diamond stamp-diamond-outer" d="M120 9 231 120 120 231 9 120Z" />
+          <path className="stamp-diamond stamp-diamond-inner" d="M120 25 215 120 120 215 25 120Z" />
+          <circle cx="120" cy="120" r="66" />
+          <path className="stamp-ornament" d="M77 61h86M77 179h86M61 77v86M179 77v86" />
+          <text x="120" y="151" textAnchor="middle">K</text>
+        </svg>
+        <span>Família Kesler</span>
+      </div>
+
+      <div className="intro-water" aria-hidden="true">
+        <div className="intro-water-shape">
+          <svg viewBox="0 0 1600 1500" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="liquid-wine" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="#6f1c32" />
+                <stop offset="0.18" stopColor="#46101f" />
+                <stop offset="1" stopColor="#120409" />
+              </linearGradient>
+            </defs>
+            <path
+              className="liquid-depth"
+              d="M0 126C132 71 244 174 392 119C536 65 638 48 794 112C947 175 1057 65 1201 100C1340 134 1465 178 1600 104V1500H0Z"
+            />
+            <path
+              className="liquid-body"
+              d="M0 108C144 53 250 153 397 101C542 50 645 30 800 94C954 158 1060 45 1207 82C1349 117 1461 157 1600 86V1500H0Z"
+            />
+            <path
+              className="liquid-glint"
+              d="M0 108C144 53 250 153 397 101C542 50 645 30 800 94C954 158 1060 45 1207 82C1349 117 1461 157 1600 86"
+            />
+          </svg>
+        </div>
       </div>
     </section>
   );
