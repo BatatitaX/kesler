@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatedElysana } from "@/app/components/animated-elysana";
 import { KeslerSealMark } from "@/app/components/kesler-seal-mark";
 
-const INTRO_EXIT_MS = 4520;
+const INTRO_EXIT_MS = 5200;
 
 export function IntroGate() {
   const [leaving, setLeaving] = useState(false);
@@ -36,15 +36,6 @@ export function IntroGate() {
         <div className="fabric fabric-two" />
         <div className="fabric fabric-three" />
 
-        <div className="intro-portrait-wrap" aria-hidden="true">
-          <div className="portrait-collage">
-            <span className="collage-paper collage-paper-one" />
-            <span className="collage-paper collage-paper-two" />
-            <span className="collage-paper collage-paper-three" />
-          </div>
-          <div className="portrait-halo" />
-          <AnimatedElysana />
-        </div>
 
         <div className="intro-copy">
           <div className="intro-kicker"><span /> Arquivos da Família Kesler</div>
@@ -75,6 +66,16 @@ export function IntroGate() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="intro-portrait-wrap intro-persistent-portrait" aria-hidden="true">
+        <div className="portrait-collage">
+          <span className="collage-paper collage-paper-one" />
+          <span className="collage-paper collage-paper-two" />
+          <span className="collage-paper collage-paper-three" />
+        </div>
+        <div className="portrait-halo" />
+        <AnimatedElysana />
       </div>
 
       <div className="intro-water" aria-hidden="true">
