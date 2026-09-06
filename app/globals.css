@@ -992,3 +992,17 @@ body::before {
   55% { transform: translate3d(-50%, -50%, 0) scale(1.01, .99) rotate(-2deg); }
   100% { opacity: 1; filter: saturate(.92) brightness(.88); transform: translate3d(-50%, -50%, 0) scale(1) rotate(-2deg); }
 }
+
+
+/* Restore life without moving any exposed edge far enough to detach from the portrait. */
+.elysana-hair-layer { display:block !important; }
+.elysana-hair-left { animation: hairSafeLeft 6.8s ease-in-out infinite !important; }
+.elysana-hair-right { animation: hairSafeRight 7.2s ease-in-out infinite !important; }
+.elysana-hair-front { animation: hairSafeFront 6.4s ease-in-out infinite !important; }
+@keyframes hairSafeLeft { 0%,100%{transform:translate3d(0,0,0)} 50%{transform:translate3d(-1.2px,.35px,0)} }
+@keyframes hairSafeRight { 0%,100%{transform:translate3d(0,0,0)} 50%{transform:translate3d(-.85px,.25px,0)} }
+@keyframes hairSafeFront { 0%,100%{transform:translate3d(0,0,0)} 50%{transform:translate3d(-.55px,.15px,0)} }
+
+/* The ink footprint now follows the exact rectangular proportion of the wooden base. */
+.wax-seal { width:98%; aspect-ratio:2.78; border-radius:6px; }
+.wax-impression { inset:10% 41%; width:18%; height:80%; }
