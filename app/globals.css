@@ -1006,3 +1006,17 @@ body::before {
 /* The ink footprint now follows the exact rectangular proportion of the wooden base. */
 .wax-seal { width:98%; aspect-ratio:2.78; border-radius:6px; }
 .wax-impression { inset:10% 41%; width:18%; height:80%; }
+
+
+/* The wooden base, not the top of the handle, is the contact point. */
+.seal-press { top: 6%; }
+@keyframes sealPress {
+  0% { opacity: 0; transform: translate3d(-50%, -120svh, 0) rotate(-3.2deg) scale(1.16); }
+  8% { opacity: 1; }
+  35% { opacity: 1; transform: translate3d(-50%, -14%, 0) rotate(-1.2deg) scale(1.03); }
+  44% { opacity: 1; transform: translate3d(-50%, 1.4%, 0) rotate(0) scale(1.08, .89); }
+  49% { opacity: 1; transform: translate3d(-50%, -2.5%, 0) rotate(.2deg) scale(.99, 1.025); }
+  57%, 62% { opacity: 1; transform: translate3d(-50%, 0, 0) rotate(0) scale(1); }
+  77% { opacity: 1; transform: translate3d(-50%, -25%, 0) rotate(-.9deg) scale(.985); }
+  100% { opacity: 0; transform: translate3d(-50%, -122svh, 0) rotate(-2.3deg) scale(1.08); }
+}
