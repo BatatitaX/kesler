@@ -3,7 +3,7 @@
 import { ArrowDownRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const INTRO_EXIT_MS = 2380;
+const INTRO_EXIT_MS = 2480;
 
 export function IntroGate() {
   const [leaving, setLeaving] = useState(false);
@@ -28,41 +28,43 @@ export function IntroGate() {
 
   return (
     <section className={leaving ? "intro-gate is-leaving" : "intro-gate"} aria-label="Introdução de A Bela Dama">
-      <div className="intro-grain" />
-      <div className="fabric fabric-one" />
-      <div className="fabric fabric-two" />
-      <div className="fabric fabric-three" />
+      <div className="intro-scene">
+        <div className="intro-grain" />
+        <div className="fabric fabric-one" />
+        <div className="fabric fabric-two" />
+        <div className="fabric fabric-three" />
 
-      <div className="intro-portrait-wrap" aria-hidden="true">
-        <div className="portrait-collage">
-          <span className="collage-paper collage-paper-one" />
-          <span className="collage-paper collage-paper-two" />
-          <span className="collage-paper collage-paper-three" />
+        <div className="intro-portrait-wrap" aria-hidden="true">
+          <div className="portrait-collage">
+            <span className="collage-paper collage-paper-one" />
+            <span className="collage-paper collage-paper-two" />
+            <span className="collage-paper collage-paper-three" />
+          </div>
+          <div className="portrait-halo" />
+          <img className="elysana-continuity-portrait" src="/assets/skins/elysana-loop.gif" alt="" />
         </div>
-        <div className="portrait-halo" />
-        <img className="elysana-continuity-portrait" src="/assets/skins/elysana-busto-v2.png" alt="" />
-      </div>
 
-      <div className="intro-copy">
-        <div className="intro-kicker"><span /> Arquivos da Família Kesler</div>
-        <p className="intro-script">Elysana Kesler</p>
-        <h1><span>A Bela</span><strong>Dama</strong></h1>
-        <blockquote>“Um brinde a todos que vieram antes de nós.”</blockquote>
-        <button type="button" className="enter-button" onClick={enter}>
-          <span>Abrir os arquivos</span>
-          <ArrowDownRight size={18} strokeWidth={1.5} />
-        </button>
-      </div>
+        <div className="intro-copy">
+          <div className="intro-kicker"><span /> Arquivos da Família Kesler</div>
+          <p className="intro-script">Elysana Kesler</p>
+          <h1><span>A Bela</span><strong>Dama</strong></h1>
+          <blockquote>“Um brinde a todos que vieram antes de nós.”</blockquote>
+          <button type="button" className="enter-button" onClick={enter}>
+            <span>Abrir os arquivos</span>
+            <ArrowDownRight size={18} strokeWidth={1.5} />
+          </button>
+        </div>
 
-      <div className="kesler-stamp" aria-hidden="true">
-        <svg viewBox="0 0 240 240" role="presentation">
-          <path className="stamp-diamond stamp-diamond-outer" d="M120 9 231 120 120 231 9 120Z" />
-          <path className="stamp-diamond stamp-diamond-inner" d="M120 25 215 120 120 215 25 120Z" />
-          <circle cx="120" cy="120" r="66" />
-          <path className="stamp-ornament" d="M77 61h86M77 179h86M61 77v86M179 77v86" />
-          <text x="120" y="151" textAnchor="middle">K</text>
-        </svg>
-        <span>Família Kesler</span>
+        <div className="kesler-stamp" aria-hidden="true">
+          <svg viewBox="0 0 240 240" role="presentation">
+            <path className="stamp-diamond stamp-diamond-outer" d="M120 9 231 120 120 231 9 120Z" />
+            <path className="stamp-diamond stamp-diamond-inner" d="M120 25 215 120 120 215 25 120Z" />
+            <circle cx="120" cy="120" r="66" />
+            <path className="stamp-ornament" d="M77 61h86M77 179h86M61 77v86M179 77v86" />
+            <text x="120" y="151" textAnchor="middle">K</text>
+          </svg>
+          <span>Família Kesler</span>
+        </div>
       </div>
 
       <div className="intro-water" aria-hidden="true">

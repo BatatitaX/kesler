@@ -35,7 +35,7 @@ export default function Home() {
               <span className="collage-paper collage-paper-three" />
             </div>
             <div className="portrait-arch" />
-            <img className="elysana-continuity-portrait" src="/assets/skins/elysana-busto-v2.png" alt="Elysana Kesler" />
+            <img className="elysana-continuity-portrait" src="/assets/skins/elysana-loop.gif" alt="Elysana Kesler" />
             <div className="portrait-caption"><span>Forma selecionada</span><strong>A Bela Dama</strong></div>
           </div>
 

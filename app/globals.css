@@ -187,15 +187,21 @@ body::before {
   z-index: 100;
   isolation: isolate;
   overflow: hidden;
+}
+.intro-gate.is-leaving { pointer-events: none; }
+.intro-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
   background:
     radial-gradient(ellipse at 78% 44%, rgba(133, 36, 56, 0.46), transparent 32%),
     radial-gradient(circle at 12% 82%, rgba(113, 29, 47, 0.22), transparent 26%),
     linear-gradient(112deg, #090205 0%, #17050b 44%, #3a0d19 100%);
-  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  will-change: clip-path;
 }
-.intro-gate.is-leaving {
-  animation: introRelease 2.38s linear forwards;
-}
+.intro-gate.is-leaving .intro-scene { animation: sceneWipe 1.12s .72s cubic-bezier(.62,0,.2,1) both; }
 .intro-grain {
   position: absolute;
   inset: 0;
@@ -205,7 +211,7 @@ body::before {
   mix-blend-mode: soft-light;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
 }
-.intro-gate::before {
+.intro-scene::before {
   content: "";
   position: absolute;
   inset: 28px;
@@ -279,7 +285,7 @@ body::before {
 .intro-water .liquid-depth { fill: rgba(7,1,4,.78); }
 .intro-water .liquid-body { fill: url(#liquid-wine); }
 .intro-water .liquid-glint { fill: none; stroke: rgba(238,203,143,.62); stroke-width: 3; }
-.intro-gate.is-leaving .intro-water { animation: waterRise 1.46s .68s cubic-bezier(.64,0,.2,1) both; }
+.intro-gate.is-leaving .intro-water { animation: waterRise 1.68s .72s cubic-bezier(.62,0,.18,1) both; }
 
 /* Home */
 .home-page { padding-top: 0; }
@@ -476,16 +482,14 @@ body::before {
 @keyframes waterRise {
   0% { opacity: 0; transform: translate3d(0,0,0); }
   3% { opacity: 1; }
-  100% { opacity: 1; transform: translate3d(0,-137svh,0); }
+  74% { opacity: 1; transform: translate3d(0,-131svh,0); }
+  100% { opacity: 0; transform: translate3d(0,-146svh,0); }
 }
 @keyframes waterDrift {
   from { transform: translate3d(-1.2vw,0,0) scaleX(1.035); }
   to { transform: translate3d(1.2vw,1.2vh,0) scaleX(1.055); }
 }
-@keyframes introRelease {
-  0%, 89% { opacity: 1; }
-  100% { opacity: 0; }
-}
+@keyframes sceneWipe { to { clip-path: inset(0 0 100% 0); } }
 
 @media (max-width: 1180px) {
   .floating-header { grid-template-columns: 44px 1fr 118px; gap: 10px; }
@@ -510,7 +514,7 @@ body::before {
 
 @media (max-width: 720px) {
   .inner-page { width: min(100% - 32px, 1380px); padding-top: 125px; }
-  .intro-gate::before { inset: 14px; }
+  .intro-scene::before { inset: 14px; }
   :root { --elysana-height: 93svh; --elysana-right: -27vw; --elysana-bottom: -1svh; }
   .intro-portrait-wrap, .home-portrait-stage { --portrait-opacity: .45; }
   .portrait-collage { right: calc(var(--elysana-right) + 3vw); width: 61vh; }
