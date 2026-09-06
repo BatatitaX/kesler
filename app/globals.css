@@ -790,3 +790,68 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+/* Opening sequence: portrait stays aligned with the home composition while the seal and liquid move around it. */
+.intro-gate > .intro-persistent-portrait {
+  z-index: 41;
+  pointer-events: none;
+}
+.intro-gate.is-leaving .intro-persistent-portrait {
+  animation: introPortraitSettle .42s 4.72s ease-out both;
+}
+.elysana-gaze-layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: .96;
+  -webkit-mask-image:
+    radial-gradient(ellipse 7.8% 3.2% at 43.5% 31.2%, #000 56%, transparent 82%),
+    radial-gradient(ellipse 7.8% 3.2% at 57.4% 31.2%, #000 56%, transparent 82%);
+  mask-image:
+    radial-gradient(ellipse 7.8% 3.2% at 43.5% 31.2%, #000 56%, transparent 82%),
+    radial-gradient(ellipse 7.8% 3.2% at 57.4% 31.2%, #000 56%, transparent 82%);
+}
+.elysana-gaze-layer img {
+  animation: elysanaGaze 12.8s steps(1, end) infinite;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+.intro-gate.is-leaving .seal-press { animation: sealPress 2.58s cubic-bezier(.12,.79,.12,1) forwards; }
+.intro-gate.is-leaving .wax-seal { animation: waxSealForm 2.58s .62s cubic-bezier(.19,.8,.16,1) forwards; }
+.intro-gate.is-leaving .wax-cast-shadow { animation: waxShadow 1.35s .88s ease-out forwards; }
+.intro-gate.is-leaving .wax-impression { animation: sealReveal 1.06s 1.6s cubic-bezier(.2,.8,.2,1) forwards; }
+.intro-gate.is-leaving .wax-fleck-one { animation: waxFleck .8s 1.13s ease-out forwards; }
+.intro-gate.is-leaving .wax-fleck-two { animation: waxFleck .72s 1.2s ease-out forwards; }
+.intro-gate.is-leaving .wax-fleck-three { animation: waxFleck .86s 1.09s ease-out forwards; }
+.intro-gate.is-leaving .intro-water { animation: waterRise 1.95s 3.02s cubic-bezier(.22,.76,.12,1) both; }
+.intro-gate.is-leaving .intro-scene { animation: sceneWipe 1.94s 3.13s cubic-bezier(.24,.74,.12,1) both; }
+
+@keyframes elysanaGaze {
+  0%, 43%, 100% { transform: translate3d(0, 0, 0); }
+  45%, 55% { transform: translate3d(-1.4%, 0, 0); }
+  57%, 62% { transform: translate3d(.8%, 0, 0); }
+  64%, 68% { transform: translate3d(0, 0, 0); }
+}
+@keyframes introPortraitSettle {
+  from { opacity: var(--portrait-opacity); }
+  to { opacity: 0; }
+}
+@keyframes sealPress {
+  0% { opacity: 0; transform: translate3d(-50%, -132svh, 0) rotate(-3.2deg) scale(1.16); }
+  8% { opacity: 1; }
+  35% { opacity: 1; transform: translate3d(-50%, -18%, 0) rotate(-1.2deg) scale(1.03); }
+  44% { opacity: 1; transform: translate3d(-50%, 1.4%, 0) rotate(0) scale(1.08, .89); }
+  49% { opacity: 1; transform: translate3d(-50%, -2.5%, 0) rotate(.2deg) scale(.99, 1.025); }
+  57%, 62% { opacity: 1; transform: translate3d(-50%, 0, 0) rotate(0) scale(1); }
+  77% { opacity: 1; transform: translate3d(-50%, -25%, 0) rotate(-.9deg) scale(.985); }
+  100% { opacity: 0; transform: translate3d(-50%, -134svh, 0) rotate(-2.3deg) scale(1.08); }
+}
+@keyframes waterRise {
+  0% { opacity: 0; transform: translate3d(0, 7svh, 0); }
+  5% { opacity: 1; }
+  76% { opacity: 1; transform: translate3d(0, -132svh, 0); }
+  100% { opacity: 0; transform: translate3d(0, -148svh, 0); }
+}
