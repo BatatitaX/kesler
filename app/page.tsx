@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, BookOpenText, LibraryBig, Shirt } from "lucide-react";
 import { IntroGate } from "@/app/components/intro-gate";
+import { AnimatedElysana } from "@/app/components/animated-elysana";
 
 const quickLinks = [
   { href: "/historia", icon: BookOpenText, index: "01", title: "As Crônicas", text: "Doze capítulos sobre a mulher por trás do nome." },
@@ -35,7 +36,7 @@ export default function Home() {
               <span className="collage-paper collage-paper-three" />
             </div>
             <div className="portrait-arch" />
-            <img className="elysana-continuity-portrait" src="/assets/skins/elysana-loop.gif" alt="Elysana Kesler" />
+            <AnimatedElysana alt="Elysana Kesler" />
             <div className="portrait-caption"><span>Forma selecionada</span><strong>A Bela Dama</strong></div>
           </div>
 

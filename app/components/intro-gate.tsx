@@ -2,8 +2,10 @@
 
 import { ArrowDownRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { AnimatedElysana } from "@/app/components/animated-elysana";
+import { KeslerSealMark } from "@/app/components/kesler-seal-mark";
 
-const INTRO_EXIT_MS = 2480;
+const INTRO_EXIT_MS = 4520;
 
 export function IntroGate() {
   const [leaving, setLeaving] = useState(false);
@@ -41,7 +43,7 @@ export function IntroGate() {
             <span className="collage-paper collage-paper-three" />
           </div>
           <div className="portrait-halo" />
-          <img className="elysana-continuity-portrait" src="/assets/skins/elysana-loop.gif" alt="" />
+          <AnimatedElysana />
         </div>
 
         <div className="intro-copy">
@@ -55,15 +57,23 @@ export function IntroGate() {
           </button>
         </div>
 
-        <div className="kesler-stamp" aria-hidden="true">
-          <svg viewBox="0 0 240 240" role="presentation">
-            <path className="stamp-diamond stamp-diamond-outer" d="M120 9 231 120 120 231 9 120Z" />
-            <path className="stamp-diamond stamp-diamond-inner" d="M120 25 215 120 120 215 25 120Z" />
-            <circle cx="120" cy="120" r="66" />
-            <path className="stamp-ornament" d="M77 61h86M77 179h86M61 77v86M179 77v86" />
-            <text x="120" y="151" textAnchor="middle">K</text>
-          </svg>
-          <span>Família Kesler</span>
+        <div className="kesler-seal-animation" aria-hidden="true">
+          <div className="wax-cast-shadow" />
+          <div className="wax-seal">
+            <span className="wax-edge wax-edge-one" />
+            <span className="wax-edge wax-edge-two" />
+            <span className="wax-edge wax-edge-three" />
+            <KeslerSealMark className="wax-impression" />
+          </div>
+          <div className="wax-fleck wax-fleck-one" />
+          <div className="wax-fleck wax-fleck-two" />
+          <div className="wax-fleck wax-fleck-three" />
+          <div className="seal-press">
+            <div className="seal-handle"><span /></div>
+            <div className="seal-matrix">
+              <KeslerSealMark className="seal-matrix-mark" />
+            </div>
+          </div>
         </div>
       </div>
 
