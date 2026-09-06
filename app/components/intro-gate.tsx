@@ -62,6 +62,8 @@ export function IntroGate() {
           <div className="seal-press">
             <div className="seal-handle"><span /></div>
             <div className="seal-matrix">
+              <span className="seal-wood-grain seal-wood-grain-one" />
+              <span className="seal-wood-grain seal-wood-grain-two" />
               <KeslerSealMark className="seal-matrix-mark" />
             </div>
           </div>
