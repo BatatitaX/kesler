@@ -1057,3 +1057,22 @@ html.intro-locked {
   from { opacity: 1; transform: translateY(-48%); filter: blur(0); }
   to { opacity: 0; transform: translateY(calc(-48% - 10px)); filter: blur(3px); }
 }
+
+
+/* One shared geometry for the stamp and the ink it leaves behind. */
+.kesler-seal-animation {
+  --stamp-base-width: clamp(250px, 37vw, 500px);
+  --stamp-contact-y: 47.5%;
+}
+.seal-press { width: var(--stamp-base-width); }
+.wax-seal {
+  top: var(--stamp-contact-y);
+  width: var(--stamp-base-width);
+  aspect-ratio: 3.33;
+  border-radius: 5px;
+}
+.wax-impression {
+  inset: 10% 44%;
+  width: 12%;
+  height: 80%;
+}
