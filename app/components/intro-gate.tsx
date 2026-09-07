@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatedElysana } from "@/app/components/animated-elysana";
 import { KeslerSealMark } from "@/app/components/kesler-seal-mark";
 
-const INTRO_EXIT_MS = 5200;
+const INTRO_EXIT_MS = 6500;
 
 export function IntroGate() {
   const [leaving, setLeaving] = useState(false);
