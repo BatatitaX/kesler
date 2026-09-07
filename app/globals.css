@@ -1020,3 +1020,12 @@ body::before {
   77% { opacity: 1; transform: translate3d(-50%, -25%, 0) rotate(-.9deg) scale(.985); }
   100% { opacity: 0; transform: translate3d(-50%, -122svh, 0) rotate(-2.3deg) scale(1.08); }
 }
+
+
+/* Keep the layout width identical before and after the intro lock; prevent the Windows scrollbar from shifting Elysana. */
+html {
+  scrollbar-gutter: stable;
+}
+html.intro-locked {
+  scrollbar-gutter: stable;
+}
