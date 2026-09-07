@@ -1029,3 +1029,31 @@ html {
 html.intro-locked {
   scrollbar-gutter: stable;
 }
+
+
+/* Final opening choreography: copy clears, the seal lands, its fresh mark lingers, then the water reveals home. */
+.intro-gate.is-leaving .intro-copy {
+  animation: introCopyLeave .38s .08s ease-in both;
+}
+.intro-gate.is-leaving .fabric,
+.intro-gate.is-leaving .intro-grain {
+  animation-play-state: paused;
+  opacity: .35;
+  transition: opacity .45s ease .3s;
+}
+.intro-gate.is-leaving .seal-press { animation: sealPress 2.72s .45s cubic-bezier(.12,.79,.12,1) forwards; }
+.intro-gate.is-leaving .wax-seal { animation: waxSealForm 2.72s 1.08s cubic-bezier(.19,.8,.16,1) forwards; }
+.intro-gate.is-leaving .wax-cast-shadow { animation: waxShadow 1.35s 1.34s ease-out forwards; }
+.intro-gate.is-leaving .wax-impression { animation: sealReveal 1.06s 2.06s cubic-bezier(.2,.8,.2,1) forwards; }
+.intro-gate.is-leaving .wax-fleck-one { animation: waxFleck .8s 1.58s ease-out forwards; }
+.intro-gate.is-leaving .wax-fleck-two { animation: waxFleck .72s 1.65s ease-out forwards; }
+.intro-gate.is-leaving .wax-fleck-three { animation: waxFleck .86s 1.54s ease-out forwards; }
+/* The red mark is readable for a beat after the stamp leaves. */
+.intro-gate.is-leaving .intro-water { animation: waterRise 1.95s 4.42s cubic-bezier(.22,.76,.12,1) both; }
+.intro-gate.is-leaving .intro-scene { animation: sceneWipe 1.94s 4.55s cubic-bezier(.24,.74,.12,1) both; }
+.intro-gate.is-leaving .intro-persistent-portrait { animation: introPortraitSettle .42s 5.92s ease-out both; }
+
+@keyframes introCopyLeave {
+  from { opacity: 1; transform: translateY(-48%); filter: blur(0); }
+  to { opacity: 0; transform: translateY(calc(-48% - 10px)); filter: blur(3px); }
+}
